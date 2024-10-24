@@ -2,11 +2,11 @@
 import random
 
 class Player:
-    def __init__(self, name: str):
+    def __init__(self, name: str) -> None:
         self.name = name.title()
         self.hp = 100
     
-    def atk(self, Monster:object):
+    def atk(self, Monster:object) -> None:
         dmg = random.randrange(1, 6)
         Monster.hp -= dmg
         
@@ -16,7 +16,7 @@ class Player:
             print(f"{self.name} attacks {Monster.name} and takes {dmg} of damage...")
             print(f"The {Monster.name} is {Monster.hp} of hp")
     
-    def block(self, monsterDamage):
+    def block(self, monsterDamage) -> None:
         defense = random.randint(1, 6)
         dmgRecived = monsterDamage-defense
         
@@ -31,7 +31,7 @@ class Player:
             self.hp -= (dmgRecived)
             print(f"Actual hp: {self.hp}")
             
-    def heal(self):
+    def heal(self) -> None:
         heal_points = random.randint(1, 6)
         total = heal_points + self.hp
         
