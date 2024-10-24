@@ -5,43 +5,32 @@ class Player:
     def __init__(self, name: str) -> None:
         self.name = name.title()
         self.hp = 100
-    
+        self.defense = 0
+    # Attack monster method
     def atk(self, Monster:object) -> None:
         dmg = random.randrange(1, 6)
         Monster.hp -= dmg
         
         if (Monster.hp <= 0):
-            print("You defeat the monster, congrats!")     
+            return None     
         else:
-            print(f"{self.name} attacks {Monster.name} and takes {dmg} of damage...")
+            print(f"\n{self.name} attacks {Monster.name} and takes {dmg} of damage...")
             print(f"The {Monster.name} is {Monster.hp} of hp")
-    
-    def block(self, monsterDamage) -> None:
-        defense = random.randint(1, 6)
-        dmgRecived = monsterDamage-defense
-        
-        while(dmgRecived<0):
-            defense = random.randrange(1, 6)
-            dmgRecived = monsterDamage-defense
-        
-        if (dmgRecived == 0):
-            print("Wow, you defense all damage!")
-        else:
-            print(f"You taked {dmgRecived} of damage...")
-            self.hp -= (dmgRecived)
-            print(f"Actual hp: {self.hp}")
-            
+    # Block defense method
+    def block(self) -> None:
+        defense = random.randint(1, 3)
+        self.defense += defense
+    # heal player method
     def heal(self) -> None:
         heal_points = random.randint(1, 6)
         total = heal_points + self.hp
         
-        while (total > 100):
-            heal_points = random.randint(1, 6)
-            total = heal_points + self.hp
-        
-        self.hp += heal_points
         if (self.hp == 100):
-            print("You are full hp now!")
+            print("\nYou are full hp. Stay calm....")
         else:
-            print(f"You recover {heal_points} of hp...")
-            print(f"Actual hp: {self.hp}")
+            if (total > 100):
+                self.hp = 100
+                print("\nYou are full hp now!")
+            else:
+                self.hp += heal_points
+                print(f"\nYou recover {heal_points} of hp!")

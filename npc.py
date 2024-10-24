@@ -2,7 +2,7 @@
 import random
 
 class Npc:
-    phrases = ["Don't talk with me...", "Hello, welcome to the Vastin", "Leave me alone.", "Go out to the city!", "Take care and have a good adventure!"]
+    phrases = ["Don't talk with me...", "Hello, welcome to the Vastin", "Leave me alone.", "Go out from the cit >:(", "Take care and have a good adventure!"]
     
     def __init__(self, name:str) -> None:
         self.name = name.title()
