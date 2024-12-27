@@ -4,3 +4,4 @@ In this project, the main idea was construct a discord bot using the discord API
 ## Additions
 - Modularizatrion
 - Using enviroment variables
+- Discord API interaction
